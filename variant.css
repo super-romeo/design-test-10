@@ -18,7 +18,19 @@
 
 /* Page CSS (cards.md: one --p-h per card group): the four panels shorter once the cards stack. */
 @media (max-width: 1023px) { #cosa .panel { --p-h: 160px; } }
-@media (max-width: 639px) { #cosa .panel { --p-h: 120px; } }
+@media (max-width: 639px) { #cosa .panel { --p-h: 180px; } }   /* brief 6: 180 (the kit's phone value), a 120px crop cut the picture's label */
+
+/* Brief 6 (same content on every layout): the note under the hero button, the eyebrow's gap, the facts kept on a
+   short phone, the example picture, the text arrow of a card link and the menu button's two bars (no inline SVG). */
+.hero--triptych .hero__cta { flex-direction: column; align-items: flex-end; gap: var(--s-3); }
+.hero--triptych .hero__cta .t-small { text-align: right; }
+@media (max-width: 1279px) { .hero--triptych .hero__cta { align-items: flex-start; } .hero--triptych .hero__cta .t-small { text-align: left; } }
+@media (max-width: 1023px) { .hero--triptych .hero__cta { align-items: stretch; } }
+.hero__kicker + h1 { margin-top: var(--s-4); }
+main > .hero .hero__facts { display: grid; }
+.example-pic { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-md); }
+.card__link::after { content: "\2192"; }
+.nav__bars { display: block; width: 14px; height: 8px; border-block: 1.6px solid currentColor; }
 
 /* The shared base stylesheet (style.css) loads before taste/ and sets a few things the kit never resets. */
 .wrap { max-width: none; }                       /* base: .wrap 920px wide */
